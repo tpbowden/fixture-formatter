@@ -1,5 +1,6 @@
 function submit() {
-  var input = document.getElementById("fixtures").value;
+  var box = document.getElementById("fixtures");
+  var input = box.value;
   var lines = input.split("\n");
   var output = "";
   let i = 0;
@@ -24,7 +25,9 @@ function submit() {
     i += 1;
   }
 
-  document.getElementById("fixtures").value = output;
+  box.value = output;
+  box.select();
+  document.execCommand("copy");
 }
 
 (function go() {
