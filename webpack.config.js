@@ -12,6 +12,28 @@ module.exports = {
     path: path.join(__dirname, "./dist"),
     filename: "[name].[hash].js"
   },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  corejs: "3",
+                  useBuiltIns: "usage"
+                }
+              ]
+            ]
+          }
+        }
+      }
+    ]
+  },
   plugins: [
     new webpack.IgnorePlugin({
       resourceRegExp: /^\.\/locale$/,
