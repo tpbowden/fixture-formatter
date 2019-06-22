@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const production = process.env.NODE_ENV === "production";
@@ -12,6 +13,10 @@ module.exports = {
     filename: "[name].[hash].js"
   },
   plugins: [
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/
+    }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html.ejs"
