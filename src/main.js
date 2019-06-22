@@ -1,4 +1,3 @@
-import "core-js/stable";
 import { format } from "./formatter.js";
 
 const submit = () => {
