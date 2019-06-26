@@ -1,10 +1,10 @@
 {
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production webpack && yarn update",
-    "clean": "rm -rf index.html dist",
+    "build": "yarn clean && NODE_ENV=production webpack",
+    "clean": "rm -rf dist",
     "dev": "webpack --watch",
-    "update": "cp dist/index.html index.html"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -13,6 +13,7 @@
     "babel-loader": "^8.0.6",
     "core-js": "^3.1.4",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.8.0",
     "moment": "^2.24.0",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.4"

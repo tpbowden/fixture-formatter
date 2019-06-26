@@ -8,7 +8,6 @@ module.exports = {
   mode: production ? "production" : "development",
   entry: "./src/main.js",
   output: {
-    publicPath: production ? "dist" : undefined,
     path: path.join(__dirname, "./dist"),
     filename: "[name].[hash].js"
   },
