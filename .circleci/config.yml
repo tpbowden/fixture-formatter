@@ -32,6 +32,6 @@ workflows:
   build:
     jobs:
       - install_dependencies
-      - test
+      - test:
           requires:
             - install_dependencies
