@@ -1,9 +1,16 @@
 version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  branches:
+    ignore:
+      - gh-pages
+  docker:
+    - image: circleci/node:12.4
+
 jobs:
   install_dependencies:
-    docker:
-      - image: circleci/node:12.4
-    working_directory: ~/repo
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -17,9 +24,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
   test:
-    docker:
-      - image: circleci/node:12.4
-    working_directory: ~/repo
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -28,9 +33,7 @@ jobs:
       - run: yarn test
 
   deploy:
-    docker:
-      - image: circleci/node:12.4
-    working_directory: ~/repo
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
