@@ -2,9 +2,6 @@ version: 2
 
 defaults: &defaults
   working_directory: ~/repo
-  branches:
-    ignore:
-      - gh-pages
   docker:
     - image: circleci/node:12.4
 
@@ -52,10 +49,18 @@ workflows:
   version: 2
   build:
     jobs:
-      - install_dependencies
+      - install_dependencies:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - test:
           requires:
             - install_dependencies
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - deploy:
           requires:
             - test
