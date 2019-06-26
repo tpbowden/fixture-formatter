@@ -36,7 +36,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-       - add_ssh_keys:
+      - add_ssh_keys:
           fingerprints:
             - 16:6e:be:cf:17:8d:6b:a8:6d:db:45:f8:47:12:61:63
       - run: yarn build
