@@ -20,15 +20,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn test
-
   deploy:
     <<: *defaults
     steps:
@@ -54,16 +45,7 @@ workflows:
             branches:
               ignore:
                 - gh-pages
-      - test:
-          requires:
-            - install_dependencies
-          filters:
-            branches:
-              ignore:
-                - gh-pages
       - deploy:
-          requires:
-            - test
           filters:
             branches:
               only: master
