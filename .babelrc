@@ -6,6 +6,10 @@
         "corejs": "3",
         "useBuiltIns": "usage"
       }
+    ],
+    [
+      "@babel/preset-react"
     ]
-  ]
+  ],
+  "plugins": ["@babel/plugin-transform-regenerator"]
 }

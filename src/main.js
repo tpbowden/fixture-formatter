@@ -1,12 +1,8 @@
-import { format } from "./formatter.js";
+import React from "react";
+import ReactDOM from "react-dom";
+import { App } from "./App";
 
-const submit = () => {
-  const textarea = document.getElementById("fixtures");
-  textarea.value = format(textarea.value);
-  textarea.select();
-  document.execCommand("copy");
-};
 
-(() => {
-  document.getElementById("submit").addEventListener("click", submit);
-})();
+const el = document.getElementById("app");
+
+ReactDOM.render(<App />, el)
