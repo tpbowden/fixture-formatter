@@ -46,6 +46,8 @@ workflows:
               ignore:
                 - gh-pages
       - deploy:
+          requires:
+            - install_dependencies
           filters:
             branches:
               only: master
