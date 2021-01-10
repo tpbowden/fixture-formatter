@@ -33,7 +33,7 @@ jobs:
           git config user.name "circleci"
       - add_ssh_keys:
           fingerprints:
-            - 16:6e:be:cf:17:8d:6b:a8:6d:db:45:f8:47:12:61:63
+            - 91:2c:9d:97:22:83:60:1e:da:b1:03:f7:db:5f:d6:26
       - run: yarn deploy
 
 workflows:
