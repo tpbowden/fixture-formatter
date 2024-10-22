@@ -14,8 +14,9 @@ const loadFixtures = async (date) => {
     .endOf("month")
     .format("YYYY-MM-DD");
 
+   
   const res = await fetch(
-    `https://push.api.bbci.co.uk/batch?t=%2Fdata%2Fbbc-morph-football-scores-match-list-data%2FendDate%2F${end}%2FstartDate%2F${start}%2FtodayDate%2F${today}%2Ftournament%2Fpremier-league%2Fversion%2F2.4.5?timeout=5`
+    `https://www.bbc.co.uk/wc-data/container/sport-data-scores-fixtures?selectedEndDate=${end}&selectedStartDate=${start}&todayDate=${today}&urn=urn%3Abbc%3Asportsdata%3Afootball%3Atournament%3Apremier-league&useSdApi=false`
   );
   const json = await res.json();
   const matchData = json.payload[0].body.matchData[0];
